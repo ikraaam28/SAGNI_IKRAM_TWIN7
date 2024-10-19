@@ -1,0 +1,30 @@
+<input type="text" [(ngModel)]="titre">
+
+<div class="container">
+  <div class="row">
+   
+    <div class="col-md-4" style="margin-bottom: 20px;" *ngFor="let x of Categories | contains:titre">
+
+      
+      <img appHighlight src="{{x.image}}" alt="{{x.title}}" class="img-fluid h-50 w-75" (click)="clickimage(x.description)">
+      
+      <h3 appHighlight>{{x.title | uppercase}}</h3>
+      
+    <a routerLink="getdetails">details </a>
+    <!--path param -->    <button [routerLink]="['/details',x.id ]" *ngIf="x.available" class="btn btn-primary">Voir produits</button>
+   <!--query param -->   <button [routerLink]="['/details' ]" [queryParams]="{id:x.id}"  *ngIf="x.available" class="btn btn-primary">Voir produits 2</button>
+     
+    
+    
+      <span *ngIf="!x.available">Catégorie non disponible</span>
+
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
+
+<!--   {{nom}}
+  <button (click)="clickMe()">test</button>
+  <input [value]="nom">
+  <input [(ngModel)]="nom"> 
+  -->

@@ -1,0 +1,18 @@
+<div *ngIf="filteredProducts.length > 0; else noProducts">
+    <h2>Produits de la catégorie {{ categoryId }} :</h2>
+    <ul>
+      <li *ngFor="let product of filteredProducts">
+        <h3>{{ product.name }}</h3>
+        <img [src]="product.image" alt="{{ product.name }}" width="150" />
+        <p>{{ product.description }}</p>
+        <p><strong>Prix :</strong> {{ product.price }} TND</p>
+        <p><strong>Marque :</strong> {{ product.brand }}</p>
+      </li>
+    </ul>
+  </div>
+  
+  <!-- Message si aucun produit n'est trouvé -->
+  <ng-template #noProducts>
+    <p>Aucun produit trouvé pour cette catégorie.</p>
+  </ng-template>
+  
