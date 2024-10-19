@@ -9,6 +9,22 @@ import { ProductsQCategoryComponent } from './products-qcategory/products-qcateg
 import { DetailsCategoryComponent } from './details-category/details-category.component';
 
 const routes: Routes = [
+  {
+    path: 'products',
+    loadChildren: () => import('./product/product.module').then(m => m.ProductModule)
+  },
+  {
+    path: 'apropos',
+    loadChildren: () => import('./apropos/apropos.module').then(m => m.AproposModule)
+  },
+  {
+    path: 'contact',
+    loadChildren: () => import('./contact/contact.module').then(m => m.ContactModule)
+  },
+  {
+    path: 'profile',
+    loadChildren: () => import('./profile/profile.module').then(m => m.ProfileModule)
+  },
   {path:"home",component :HomeComponent,children: [
     { path: 'getdetails', component: DetailsCategoryComponent,
     }

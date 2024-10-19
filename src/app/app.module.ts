@@ -6,7 +6,6 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ListCtegoriesComponent } from './list-ctegories/list-ctegories.component';
-import { ProductsComponent } from './product/products/products.component';
 import { FormsModule } from '@angular/forms';
 import { ContainsPipe } from './contains.pipe';
 
@@ -25,7 +24,7 @@ import { DetailsCategoryComponent } from './details-category/details-category.co
     HeaderComponent,
     FooterComponent,
     ListCtegoriesComponent,
-    ProductsComponent,
+   
     ContainsPipe,
     HighlightDirective,
     NotFoundComponent,
