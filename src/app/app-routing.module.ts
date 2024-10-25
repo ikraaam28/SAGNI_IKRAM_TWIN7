@@ -7,6 +7,7 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import { ProductsCategoryComponent } from './products-category/products-category.component';
 import { ProductsQCategoryComponent } from './products-qcategory/products-qcategory.component';
 import { DetailsCategoryComponent } from './details-category/details-category.component';
+import { AddProductComponent } from './add-product/add-product.component';
 
 const routes: Routes = [
   {
@@ -35,6 +36,7 @@ const routes: Routes = [
   {path:"details/:id",component:ProductsCategoryComponent},
  //queryparam
   {path:"details",component:ProductsQCategoryComponent},
+  {path:"add",component:AddProductComponent},
   {path:"**",component :NotFoundComponent}//dima felkher
  
 ];

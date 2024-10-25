@@ -1,0 +1,28 @@
+<form ngForm #f="ngForm">
+name : <input name="name"   minlength="5"  pattern="[a-zA-Z]*" #n="ngModel"  [(ngModel)]="p.name" required><br>
+<div *ngIf="n.touched && n.invalid">
+   <div *ngIf="n.errors['required']"> le nom est obligatoire </div>
+   <div *ngIf="n.errors['minlength']">minimum de caracteres :{{n.errors['minlength']['requiredLength']}}</div>
+   <div *ngIf="n.errors['pattern']">il faut saisir que des lettres</div>
+</div>
+desc: <textarea name="descreption" #desc="ngModel" [(ngModel)]="p.description" required></textarea>
+<div *ngIf="desc.touched && desc.invalid">
+    <div *ngIf="desc.errors['required']"> champ est obligatoire </div>
+    <div *ngIf="desc.errors['minlength']">min 5 caracteres </div>
+ </div>
+<!--<button [disabled]="n.invalid||desc.invalid" >save</button> -->
+
+<br>
+price: <input  name="price" [(ngModel)]="p.price" #pr="ngModel" pattern="^\d+(\.\d+)?$">
+<div *ngIf="pr.invalid"> il faut ecrire des car et des chiffres  </div>
+categorieid:<input type="number" name="categoryId"  [(ngModel)]="p.categoryId" #cat="ngModel" required>
+<div *ngIf="cat.invalid"> categorie obligatoire </div>
+promotion:<input   name="promotion" [(ngModel)]="p.promotion" #prom="ngModel" pattern="^(0|[1-9][0-9]?)$">
+<div *ngIf="prom.invalid"> il faut un nombre inférieur ou égal à 100. </div>
+<!--<button (click)="add(f.value)" [disabled]="f.invalid" >save</button>-->
+<button (click)="add()" [disabled]="f.invalid" >save</button>
+</form>
+<!--valid:{{n.valid}}**invalid{{n.invalid}}<br>
+touched:{{n.touched}}**untouched{{n.untouched}}<br>
+dirty:{{n.dirty}}**pristine{{n.pristine}}-->
+
